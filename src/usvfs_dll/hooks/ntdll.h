@@ -10,6 +10,18 @@
 namespace usvfs
 {
 
+NTSTATUS queryDirectoryFile(HANDLE FileHandle,
+  HANDLE Event,
+  PIO_APC_ROUTINE ApcRoutine,
+  PVOID ApcContext,
+  PIO_STATUS_BLOCK IoStatusBlock,
+  PVOID FileInformation,
+  ULONG Length,
+  FILE_INFORMATION_CLASS FileInformationClass,
+  ULONG QueryFlags,
+  PUNICODE_STRING FileName,
+  bool isEx);
+
 DLLEXPORT NTSTATUS WINAPI
 hook_NtQueryFullAttributesFile(POBJECT_ATTRIBUTES ObjectAttributes,
                           PFILE_NETWORK_OPEN_INFORMATION FileInformation);
